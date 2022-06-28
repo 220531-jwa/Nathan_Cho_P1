@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Creation Success</title>
+    <style> table, th, td, tr
+        {border:1px solid black;}
+    </style>
+</head>
+<body onload="waitredirect()">
+    <p>Hooray! The account was made successfully!</p>
+    <p>You will be redirected back to the login page in 5 seconds</p>
+    <br/>
+    <p>if you are not automatically redirected, click below</p>
+    <label>
+        <button type="button" onclick="manualredirect()">To Login Page</button>
+    </label>
+
+    <script>
+        function manualredirect(){
+            window.location = 'http://localhost:8081/loginPage.html';
+        }
+
+        function waitredirect(){
+            setTimeout(() => {window.location = 'http://localhost:8081/loginPage.html'}, 5000);
+        }
+    </script>
+</body>
+</html>

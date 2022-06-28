@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Account Creation</title>
+</head>
+<body>
+    <div class="container">
+        <p>Create your Account <br/>
+        * indicates required fields</p>
+        <label>
+            *Name:
+            <input id="nameInput" type="text" placeholder="Name First and Last"> 
+        </label>
+        <br/>
+        <label>
+            *Username:
+            <input id="uname" type="text" placeholder="Username"> 
+        </label>
+        <br/>
+        <label>
+            *Password:
+            <input id="pass" type="password" placeholder="Password"> 
+        </label>
+        <br/>
+        <label>
+            *Confirm Password:
+            <input id="passconfirm" type="password" placeholder="Confirm Password"> 
+        </label>
+
+        <div class = "custom-select" style="width:200px;">
+            <select id="accountType">
+                <option value="0">Account Type:</option>
+                <option value="1">Employee</option>
+                <option value="2">Finance Manager</option>
+            </select>
+        </div>
+        
+        <div id="emptyFieldError" style="display: none;">Please complete all required fields!</div> 
+
+        <br/>
+        <button type="button" onclick="createAccount()">Create Account</button>
+    </div>
+    
+    <script src="./accCreationScript.js"></script>
+</body>
+</html>

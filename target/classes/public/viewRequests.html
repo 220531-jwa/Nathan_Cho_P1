@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Requests</title>
+    <style> table, th, td, tr
+        {border:1px solid black;}
+    </style>
+</head>
+<body onload="getRequests()">
+    <h1>Reimbursement Ticket Requests:</h1>
+    <table id="requestsTable" style="width:75%">
+        <tr>
+            <th>ID</th>
+            <th>Subject</th>
+            <th>Submission Time</th>
+            <th>Status</th>
+            <th>Grade</th>
+        </tr>
+    </table>
+
+    <label>
+        Request ID:
+        <input id="reqID" type="text">
+        <button type="button" onclick="pullSingleRequest()">View More</button>
+    </label>
+
+    <button type="button" onclick="goToHome()">Back to Home</button>
+
+    <script src="./viewRequests.js"></script>
+</body>
+</html>

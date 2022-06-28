@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Reimbursement Request Submission</title>
+</head>
+<h1>Submit new Reimbursement Request</h1>
+<body>
+    <p>* indicates required fields </p>
+    <p id="UserNameField"></p>
+
+    <label>
+        *Subject:
+        <input id="subj" type="text" placeholder="60 character limit"> 
+    </label>
+    <br/>
+    <label>
+        Event Decription:
+        <input id="desc" type="text" placeholder="Type description here (limit 1000 characters)"> 
+    </label>
+    <br/>
+    <label>
+        *Event Date:
+        <input id="evdate" type="date" placeholder="Event Date YYYY-MM-DD"> <!--need to code in a date selector here-->
+    </label>
+    <br/>
+    <label>
+        Event Location:
+        <input id="loca" type="text" placeholder="Location Description (limit 100 characters)"> 
+    </label>
+    <br/>
+    <label>
+        *Cost:
+        <input id="cost" type="text" placeholder="Reimbursement Amount"> 
+    </label>
+    <br/>
+    <label>
+        Event Type:
+        <input id="evtype" type="text" placeholder="Event Type/Work Related Justification"> 
+    </label>
+    <br/>
+    <div class = "custom-select" style="width:200px;"> *Grade:
+        <select id="grade">
+            <option value="pass">Pass</option>
+            <option value="fail">Fail</option>
+            <option value="presentation">Presentation</option>
+        </select>
+    </div>
+
+    <div id="emptyFieldError" style="display: none;">Please complete all required fields!</div>
+
+    <button type="button" onclick="submitRequest()">Submit Request</button>
+
+<script src="./submitNewRequest.js"></script>
+</body>
+</html>
