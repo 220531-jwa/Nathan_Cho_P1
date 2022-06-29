@@ -12,9 +12,8 @@ public class UserService {
 	
 	public User getUserById(int id) throws Exception {
 		
-		User c =  userDao.getClientByID(id);
-		
-		return c;
+		return userDao.getUserByID(id);
+
 	}
 	
 	public User checkUandP(String username, String password) {

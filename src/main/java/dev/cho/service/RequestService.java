@@ -26,4 +26,18 @@ public class RequestService {
 		
 		return rd.getSingleRequest(userId, requestId);
 	}
+	
+	public List<RequestTicket> getAllEmpRequests(){
+		
+		return rd.getAllEmpRequests();
+	}
+	
+	public RequestTicket getReqById(int requestId) {
+		
+		return rd.getReqById(requestId);
+	}
+	
+	public RequestTicket statusUpdate(int requestId, String newStatus) {
+		return rd.statusUpdate(requestId, newStatus);
+	}
 }

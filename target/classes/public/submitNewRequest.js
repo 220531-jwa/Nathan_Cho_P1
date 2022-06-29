@@ -50,7 +50,7 @@ async function submitRequest() {
 }
 
 function check(check){
-    if(document.getElementById(check) == null){
+    if(document.getElementById(check).value == null){
         return true;
     }
     else {

@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style> table, th, td, tr
+        {border:1px solid black;}
+    </style>
 </head>
 <body onload="managerCheck()">
     
@@ -12,8 +15,23 @@
     <p id="namefield"> </p>
     <br/>
 
+    <p> Current Requests </p>
+    <button type="button" onclick="loadRequests()">Refresh</button>
+
+    <table id="requests" style="width: 60%">
+        <tr>
+            <th>ID</th>
+            <th>Subject</th>
+            <th>Submission Time</th>
+            <th>Status</th>
+            <th>Grade</th>
+        </tr>
+    </table>
+
+    <br/>
+
     <button type="button" onclick="toEmpLookup()">Employee Lookup</button>
-    <button type="button" onclick="toEmployeePage()"></button>
+    <button type="button" onclick="toEmployeePage()">To Main Page</button>
     <script src="./managerPage.js"></script>
 </body>
 </html>

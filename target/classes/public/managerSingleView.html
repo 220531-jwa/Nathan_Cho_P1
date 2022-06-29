@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> table, th, td, tr
+        {border:1px solid black;}
+        </style>
+</head>
+<body onload="setManagedRequest()">
+    
+    <p>Single Request Management Page</p>
+
+    <p>To change the status of this request, use the dropdown menu and select the new status to be updated.</p>
+
+    <table id="requestTable" style="width:75%">
+    </table>
+    <br/>
+    <div class = "custom-select" style="width:200px;">
+        <select id="newStatus">
+            <option value="open">Open</option>
+            <option value="answered">Answered</option>
+            <option value="resolved">Resolved</option>
+            <option value="pending-review">Pending</option>
+            <option value="rejected">Rejected</option>
+        </select>
+
+        <button type="button" onclick="statusUpdate()">Status Update</button>
+    </div>
+
+    <p>To input a response, please type below:</p>
+        <label>
+            Enter Your response here: 
+            <button type="button" onclick="giveResponse()">Submit Response</button>
+            <br/>
+            <textarea class="userInput" id="response" placeholder="300 character limit" style="height: 200px; width: 300px; font-family: 'Times New Roman', Times, serif;"> </textarea>
+        </label>
+
+    <script src="./ManagerSingleView.js"></script>
+</body>
+</html>

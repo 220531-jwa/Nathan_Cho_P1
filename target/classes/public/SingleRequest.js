@@ -3,8 +3,6 @@ function pullUpRequest(){
     var values = Object.values(ticket);
     let requestID = values[10];
 
-    let strTicket = JSON.stringify(ticket);
-
     console.log(ticket);
 
     document.getElementById("requestName").innerHTML = "Displaying Reimbursement Request Information for Request ID = " + requestID;
@@ -26,7 +24,7 @@ function pullUpRequest(){
             <tr><th>Grade</th><td>${ticket.grade}</td></tr>
             <tr><th>Location</th><td>${ticket.location}</td></tr>
             <tr><th>Event Time</th><td>${eve}</td></tr>
-            <tr><th>Amount to be Reimbursed</th><td>${ticket.cost}</td></tr>
+            <tr><th>Amount</th><td>${ticket.cost}</td></tr>
             <tr><th>Description</th><td>${ticket.description}</td></tr>
             `
 
@@ -43,4 +41,8 @@ function toViewAll(){
 
 function toNewRequest(){
     window.location = 'http://localhost:8081/submitNewRequest.html'
+}
+
+function editRequest(){
+
 }

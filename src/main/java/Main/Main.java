@@ -3,6 +3,7 @@ package Main;
 import static io.javalin.apibuilder.ApiBuilder.path;
 import static io.javalin.apibuilder.ApiBuilder.post;
 import static io.javalin.apibuilder.ApiBuilder.get;
+import static io.javalin.apibuilder.ApiBuilder.put;
 
 import dev.cho.controller.RequestTicketController;
 import dev.cho.controller.UserController;
@@ -32,6 +33,9 @@ public class Main {
 			path("/create", () ->{
 				post(uc::createUser);
 			});
+			path("/user/{userId}", () -> {
+				get(uc::getUserById);
+			});
 			path("/submitRequest/{id}", () ->{
 				post(rc::createRequest);
 			});
@@ -42,7 +46,13 @@ public class Main {
 				});
 			});
 			path("/manager", () ->{
-				
+				path("/requests", () ->{
+					get(rc::getAllEmpRequests);
+					path("/{reqId}", () -> {
+						get(rc::getReqById);
+						put(rc::statusUpdate);
+					});
+				});
 			});
 		});
 		

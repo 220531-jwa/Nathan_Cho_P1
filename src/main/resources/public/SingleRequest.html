@@ -14,11 +14,25 @@
 
     <table id="requestTable" style="width:75%">
     </table>
+    <button type="button" onclick="editRequest()">Edit Request</button>
 
+    <table id="editsTable" display="block">
+        <tr><th>Subject</th><td><input id="newSubject" type="text" placeholder="New Subject"></td></tr>
+            <tr><th>Status</th><td><input id="newStatus" type="text" placeholder="New Status"></td></tr>
+            <tr><th>Submission Date</th><td><input id="newSubDate" type="text" placeholder="New Submission Date"></td></tr>
+            <tr><th>Event Type</th><td><input id="newEventType" type="text" placeholder="New Event Type"></td></tr>
+            <tr><th>Grade</th><td><input id="newGrade" type="text" placeholder="New Grade"></td></tr>
+            <tr><th>Location</th><td><input id="newLocation" type="text" placeholder="New Location"></td></tr>
+            <tr><th>Event Time</th><td><input id="newEventTime" type="text" placeholder="New Event Time"></td></tr>
+            <tr><th>Amount</th><td><input id="newAmount" type="text" placeholder="New Amount"></td></tr>
+            <tr><th>Description</th><td><input id="newDescription" type="text" placeholder="New Description"></td></tr>
+    </table>
+    <br/>
+    <br/>
     <button type="button" onclick="toHome()">Return to Home</button>
     <button type="button" onclick="toViewAll()">View All Requests</button>
     <button type="button" onclick="toNewRequest()">Submit a New Request</button>
-
+    
     <script src="./SingleRequest.js"></script>
 </body>
 </html>

@@ -144,4 +144,104 @@ public class RequestDAO {
 		
 		return null;
 	}
+
+	public List<RequestTicket> getAllEmpRequests(){
+		String sql = "select * from reimbursementapp.requests";
+		List<RequestTicket> requests = new ArrayList<>();
+		try(Connection conn = cu.getConnection()){
+			
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				requests.add(new RequestTicket(
+						rs.getString("status"),
+						rs.getString("subject"),
+						rs.getString("description"),
+						rs.getDate("eventdate"),
+						rs.getString("location"),
+						rs.getDouble("cost"),
+						rs.getString("eventtype"),
+						rs.getString("grade"),
+						rs.getDate("submissiontime"),
+						rs.getInt("user_id"),
+						rs.getInt("id")));
+			}
+			
+			return requests;
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return null;
+		
+	}
+
+	public RequestTicket getReqById(int requestId) {
+String sql = "select * from reimbursementapp.requests where id = ?";
+		
+		try(Connection conn = cu.getConnection()){
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, requestId);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				return new RequestTicket(
+						rs.getString("status"),
+						rs.getString("subject"),
+						rs.getString("description"),
+						rs.getDate("eventdate"),
+						rs.getString("location"),
+						rs.getDouble("cost"),
+						rs.getString("eventtype"),
+						rs.getString("grade"),
+						rs.getDate("submissiontime"),
+						rs.getInt("user_id"),
+						rs.getInt("id"));
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+	public RequestTicket statusUpdate(int requestId, String newStatus) {
+		String sql = "UPDATE reimbursementapp.requests set status = ? where id = ? returning *";
+		
+		try(Connection conn = cu.getConnection()){
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setObject(1, newStatus, Types.OTHER);
+			ps.setInt(2, requestId);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				return new RequestTicket(
+						rs.getString("status"),
+						rs.getString("subject"),
+						rs.getString("description"),
+						rs.getDate("eventdate"),
+						rs.getString("location"),
+						rs.getDouble("cost"),
+						rs.getString("eventtype"),
+						rs.getString("grade"),
+						rs.getDate("submissiontime"),
+						rs.getInt("user_id"),
+						rs.getInt("id"));
+			}
+			
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 }

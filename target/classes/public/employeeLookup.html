@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> table, th, td, tr
+        {border:1px solid black;}
+    </style>
+</head>
+<body>
+    <p>Which Employee Would you like to look up today?</p>
+    
+    <label>
+        <input id="employeeNum" type="text" placeholder="Employee ID">
+        <button type="button" onclick="lookup()">Submit</button>
+    </label>
+
+    <br/>
+    <table id="requestsTable" style="width:75%">
+        
+    </table>
+    <script src="./employeeLookup.js"></script>
+</body>
+</html>

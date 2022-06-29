@@ -12,7 +12,7 @@ public class UserController {
 	}
 	
 	public void getUserById(Context ctx) {
-		int id = Integer.parseInt(ctx.pathParam("id"));
+		int id = Integer.parseInt(ctx.pathParam("userId"));
 		User u = null;
 		try {
 			u = us.getUserById(id);

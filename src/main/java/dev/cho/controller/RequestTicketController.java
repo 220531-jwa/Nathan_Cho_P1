@@ -54,4 +54,41 @@ public class RequestTicketController {
 		}
 	}
 	
+	public void getAllEmpRequests(Context ctx) {
+		
+		List <RequestTicket> requests = new ArrayList<>();
+		
+		requests = rs.getAllEmpRequests();
+		
+		if(requests != null) {
+			ctx.status(200);
+			ctx.json(requests);
+		}
+		
+	}
+	
+	public void getReqById(Context ctx) {
+		int requestId = Integer.parseInt(ctx.pathParam("reqId"));
+		
+		RequestTicket req = rs.getReqById(requestId);
+		
+		if(req != null) {
+			ctx.status(200);
+			ctx.json(req);
+		}
+		else {
+			ctx.status(404);
+		}
+		
+	}
+	
+	public void statusUpdate(Context ctx) {
+		
+		int requestId = Integer.parseInt(ctx.pathParam("reqId"));
+		String newStatus = ctx.body();
+		
+		RequestTicket updated = rs.statusUpdate(requestId, newStatus);
+		
+		ctx.json(updated);
+	}
 }

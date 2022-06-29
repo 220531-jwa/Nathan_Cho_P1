@@ -11,7 +11,7 @@ import dev.cho.utils.ConnectionUtil;
 public class UserDAO {
 	private static ConnectionUtil cu = ConnectionUtil.getConnectionUtil();
 	
-	public User getClientByID(int id) {
+	public User getUserByID(int id) {
 		
 		String sql = "select * from reimbursementapp.users where id = ?";
 		
