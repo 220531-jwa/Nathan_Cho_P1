@@ -5,34 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Account Creation</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
-    <div class="container">
-        <p>Create your Account <br/>
-        * indicates required fields</p>
-        <label>
-            *Name:
-            <input id="nameInput" type="text" placeholder="Name First and Last"> 
+    <div class="container m-auto">
+        <p class="text h1">Create your Account</p> <br/>
+
+        <p class="text" style="color:red"><i>* indicates required fields</i></p>
+        <label class="input-group w-50">
+            <span style="color:red">*</span>Name:
+            <input class="form-control w-100 mb-1" id="nameInput" type="text" placeholder="Name First and Last"> 
         </label>
-        <br/>
-        <label>
-            *Username:
-            <input id="uname" type="text" placeholder="Username"> 
+        <label class="input-group w-50">
+            <span style="color:red">*</span>Username:
+            <input class="form-control w-100 mb-1" id="uname" type="text" placeholder="Username"> 
         </label>
-        <br/>
-        <label>
-            *Password:
-            <input id="pass" type="password" placeholder="Password"> 
+        <label class="input-group w-50">
+            <span style="color:red">*</span>Password:
+            <input class="form-control w-100 mb-1" id="pass" type="password" placeholder="Password"> 
         </label>
-        <br/>
-        <label>
-            *Confirm Password:
-            <input id="passconfirm" type="password" placeholder="Confirm Password"> 
+        <label class="input-group w-50">
+            <span style="color:red">*</span>Confirm Password:
+            <input class="form-control w-100 mb-1" id="passconfirm" type="password" placeholder="Confirm Password"> 
         </label>
 
-        <div class = "custom-select" style="width:200px;">
-            <select id="accountType">
-                <option value="0">Account Type:</option>
+        <div class = "custom-select " style="width:200px;">
+            <span style="color:red">*</span>Account Type:
+            <select class="form-select" id="accountType">
                 <option value="1">Employee</option>
                 <option value="2">Finance Manager</option>
             </select>
@@ -41,9 +40,10 @@
         <div id="emptyFieldError" style="display: none;">Please complete all required fields!</div> 
 
         <br/>
-        <button type="button" onclick="createAccount()">Create Account</button>
+        <button class="btn btn-primary" type="button" onclick="createAccount()">Create Account</button>
     </div>
     
     <script src="./accCreationScript.js"></script>
+    <script src="./js/bootstrap.js"></script>
 </body>
 </html>

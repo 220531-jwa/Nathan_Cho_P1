@@ -5,21 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reimbursement Home Page</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body onload="insertname()">
-    <div>
-        <p> You made it to the HOME PAGE </p>
-        <p id="namefield"> </p>
+    <div class="text-center">
+        <h1> You made it to the HOME PAGE </h1>
+        <p class="h2 mb-3 fw-normal" id="namefield"> </p>
         <label>
-            <button type="button" onclick="viewrequests()">View Requests</button>
+            <button class="w-100 btn btn-lg btn-primary mb-2" type="button" onclick="viewrequests()">View Requests</button>
+        
+            <button class="w-100 btn btn-lg btn-success" type="button" onclick="submitnewrequest()">Submit a new Request</button>
         </label>
 
+        <br/>
+
         <label>
-            <button type="button" onclick="submitnewrequest()">Submit a new Request</button>
+            <button class="w-100 btn btn-lg btn-danger mt-2" type="button" onclick="logout()">Log Out</button>
         </label>
 
     </div>
 
     <script src="./homeScript.js"></script>
+    <script src="./js/bootstrap.js"></script>
 </body>
 </html>

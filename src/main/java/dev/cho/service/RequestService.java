@@ -40,4 +40,8 @@ public class RequestService {
 	public RequestTicket statusUpdate(int requestId, String newStatus) {
 		return rd.statusUpdate(requestId, newStatus);
 	}
+	
+	public RequestTicket updateRequest(int userId, int requestId, RequestTicket toUpdate) {
+		return rd.updateRequest(userId, requestId, toUpdate);
+	}
 }

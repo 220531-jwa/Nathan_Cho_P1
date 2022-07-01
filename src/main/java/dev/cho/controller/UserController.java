@@ -26,7 +26,7 @@ public class UserController {
 			}
 			else {
 				ctx.status(404);
-				ctx.result("User Not Found");
+				ctx.json("");
 			}
 	}
 	

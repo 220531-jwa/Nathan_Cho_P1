@@ -10,7 +10,8 @@ function insertname(){
     console.log(user);
     console.log(values);
     let name = values[3];
-    document.getElementById("namefield").innerHTML = "Hello " + name + " What would you like to do today?";
+    let id = user.id;
+    document.getElementById("namefield").innerHTML = "Hello " + name + ", ID: " + id + ", What would you like to do today?";
 }
 
 function viewrequests(){
@@ -19,4 +20,9 @@ function viewrequests(){
 
 function submitnewrequest(){
     window.location = 'http://localhost:8081/submitNewRequest.html'
+}
+
+function logout(){
+    sessionStorage.removeItem('activeUser');
+    window.location = 'http://localhost:8081/loginPage.html';
 }

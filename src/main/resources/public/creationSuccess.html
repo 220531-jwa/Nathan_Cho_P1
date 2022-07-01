@@ -5,14 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Creation Success</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
 </head>
-<body onload="waitredirect()">
-    <p>Hooray! The account was made successfully!</p>
-    <p>You will be redirected back to the login page in 5 seconds</p>
+<body class="text-center" onload="waitredirect()">
+    <p class="h3">Hooray! The account was made successfully!</p>
+    <p class="h4">You will be redirected back to the login page in 5 seconds</p>
     <br/>
-    <p>if you are not automatically redirected, click below</p>
+    <p class="h4">if you are not automatically redirected, click below</p>
     <label>
-        <button type="button" onclick="manualredirect()">To Login Page</button>
+        <button class="btn btn-warning" type="button" onclick="manualredirect()">To Login Page</button>
     </label>
 
     <script>
@@ -24,5 +25,6 @@
             setTimeout(() => {window.location = 'http://localhost:8081/loginPage.html'}, 5000);
         }
     </script>
+    <script src="./js/bootstrap.js"></script>
 </body>
 </html>

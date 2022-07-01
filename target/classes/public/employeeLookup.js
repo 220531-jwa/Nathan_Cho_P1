@@ -2,6 +2,8 @@ let baseUrl = "http://localhost:8081/";
 
 async function lookup(){
 
+    errorsOff();
+
     var lookupID = document.getElementById("employeeNum").value;
 
     let res = await fetch(
@@ -10,11 +12,17 @@ async function lookup(){
             method: 'GET'
         }
     );
+    
+    if(res.status === 404){
+        toggleError("notFound");
+        return;
+    }
 
     let resJson = await res.json()
         .then((resp) => {
 
             sessionStorage.setItem('targetEmployee', resp);
+            document.getElementById("nameHere").innerHTML= `Showing reimbursement requests for: ${resp.name}`;
             pullRequests(resp);
         })
         .catch((error) => {console.log(error)});
@@ -22,6 +30,8 @@ async function lookup(){
 
 async function pullRequests(user){
     console.log(user);
+
+    clearTable();
 
     var userid = user.id;
     
@@ -33,11 +43,17 @@ async function pullRequests(user){
         }
     );
 
+    if(res.status === 404){
+        toggleError("notFound");
+        return;
+    }
+
     let resJson = await res.json()
         .then((resp) => {
             console.log(resp);
             var tbody = document.getElementById("requestsTable");
             
+
             tbody.innerHTML = 
             `
                 <tr>
@@ -58,7 +74,7 @@ async function pullRequests(user){
                 `
                     <tr>
                         <td>
-                        <button id="id1" onclick="setReq('${resp[i].id}')"> ${resp[i].id} </button>
+                        <button class="btn btn-outline-primary" id="id1" onclick="setReq('${resp[i].id}')"> ${resp[i].id} </button>
                     </td>
                         <td>${resp[i].subject}</td>
                         <td>${sub}</td>
@@ -74,4 +90,20 @@ async function pullRequests(user){
 function setReq(val){
     sessionStorage.setItem('managerRequestNum', val);
     window.location = 'http://localhost:8081/managerSingleView.html';
+}
+
+function toggleError(id){
+    var x = document.getElementById(id);
+    if(x.style.display == "none"){
+        x.style.display="block";
+    }
+}
+
+function errorsOff(){
+    var x = document.getElementById("notFound");
+    x.style.display = "none";
+}
+
+function clearTable(){
+    document.getElementById("requestsTable").innerHTML = "";
 }

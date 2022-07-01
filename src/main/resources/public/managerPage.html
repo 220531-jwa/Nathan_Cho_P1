@@ -5,20 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style> table, th, td, tr
-        {border:1px solid black;}
-    </style>
+    <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body onload="managerCheck()">
     
-    <p>Finance Manager Page</p>
+    <p class="h2">Finance Manager Page</p>
     <p id="namefield"> </p>
     <br/>
 
-    <p> Current Requests </p>
-    <button type="button" onclick="loadRequests()">Refresh</button>
+    <p class="h3"> Current Requests </p>
+    <button class="btn btn-outline-primary" type="button" onclick="loadRequests()">Refresh</button>
 
-    <table id="requests" style="width: 60%">
+    <table class="table table-hover" id="requests" style="width: 60%">
         <tr>
             <th>ID</th>
             <th>Subject</th>
@@ -30,8 +28,9 @@
 
     <br/>
 
-    <button type="button" onclick="toEmpLookup()">Employee Lookup</button>
-    <button type="button" onclick="toEmployeePage()">To Main Page</button>
+    <button class="btn btn-outline-primary" type="button" onclick="toEmpLookup()">Employee Lookup</button>
+    <button class="btn btn-outline-primary" type="button" onclick="toEmployeePage()">To Main Page</button>
     <script src="./managerPage.js"></script>
+    <script src="./js/bootstrap.js"></script>
 </body>
 </html>

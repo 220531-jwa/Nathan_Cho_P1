@@ -5,54 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Reimbursement Request Submission</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
 </head>
-<h1>Submit new Reimbursement Request</h1>
+<h1 class="text-center">Submit new Reimbursement Request</h1>
 <body>
-    <p>* indicates required fields </p>
+<div class="container">
+    <p style="color:red"><i>* indicates required fields </i></p>
     <p id="UserNameField"></p>
 
-    <label>
-        *Subject:
-        <input id="subj" type="text" placeholder="60 character limit"> 
+    <label class="input-group w-50">
+        <span style="color:red">*</span>Subject:
+        <input class="form-control w-100" id="subj" type="text" placeholder="60 character limit"> 
     </label>
     <br/>
-    <label>
+    <label class="input-group w-50">
         Event Decription:
-        <input id="desc" type="text" placeholder="Type description here (limit 1000 characters)"> 
+        <textarea class="form-control w-100" id="desc" type="text" placeholder="Type description here (limit 1000 characters)"> 
+            
+        </textarea> 
     </label>
     <br/>
-    <label>
-        *Event Date:
-        <input id="evdate" type="date" placeholder="Event Date YYYY-MM-DD"> <!--need to code in a date selector here-->
+    <label class="input-group w-50">
+        <span style="color:red">*</span>Event Date:
+        <input  class="form-control w-100" id="evdate" type="date" placeholder="Event Date YYYY-MM-DD"> <!--need to code in a date selector here-->
     </label>
     <br/>
-    <label>
+    <label class="input-group w-50">
         Event Location:
-        <input id="loca" type="text" placeholder="Location Description (limit 100 characters)"> 
+        <input class="form-control w-100" id="loca" type="text" placeholder="Location Description (limit 100 characters)"> 
     </label>
     <br/>
-    <label>
-        *Cost:
-        <input id="cost" type="text" placeholder="Reimbursement Amount"> 
+    <label class="input-group w-50">
+        <span style="color:red">*</span>Cost:
+        <input class="form-control w-100" id="cost" type="text" placeholder="Reimbursement Amount"> 
     </label>
     <br/>
-    <label>
+    <label class="input-group w-50">
         Event Type:
-        <input id="evtype" type="text" placeholder="Event Type/Work Related Justification"> 
+        <input class="form-control w-100" id="evtype" type="text" placeholder="Event Type/Work Related Justification"> 
     </label>
     <br/>
-    <div class = "custom-select" style="width:200px;"> *Grade:
-        <select id="grade">
+    <div class="input-group w-50">
+    <span style="color:red">*</span>Grade:
+    <div class="w-100" style="width:200px;"> 
+        <select class = "form-select " id="grade">
             <option value="pass">Pass</option>
             <option value="fail">Fail</option>
             <option value="presentation">Presentation</option>
         </select>
     </div>
+</div>
 
     <div id="emptyFieldError" style="display: none;">Please complete all required fields!</div>
 
-    <button type="button" onclick="submitRequest()">Submit Request</button>
+    <button type="button" class="w-30 btn btn-primary" onclick="submitRequest()">Submit Request</button>
+
+</div>
 
 <script src="./submitNewRequest.js"></script>
+<script src="./js/bootstrap.js"></script>
 </body>
 </html>

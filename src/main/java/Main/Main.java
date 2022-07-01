@@ -43,6 +43,7 @@ public class Main {
 				get(rc::getAllRequests);
 				path("/{requestID}", ()-> {
 					get(rc::getSingleRequest);
+					put(rc::updateRequest);
 				});
 			});
 			path("/manager", () ->{

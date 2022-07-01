@@ -47,6 +47,7 @@ async function loadRequests(){
             `
 
             for(var i = 0; i <resp.length; i++){
+                if(resp[i].status == "open"){
                 var subTime = new Date(parseInt(resp[i].submissionTime));
                 var sub = (subTime.getMonth() + 1)+'/'+ subTime.getDate() + '/' + subTime.getFullYear();
                 
@@ -54,7 +55,7 @@ async function loadRequests(){
                 `
                     <tr>
                         <td>
-                            <button id="id1" onclick="setReq('${resp[i].id}')"> ${resp[i].id} </button>
+                            <button class="btn btn-outline-info" id="id1" onclick="setReq('${resp[i].id}')"> ${resp[i].id} </button>
                         </td>
                         <td>${resp[i].subject}</td>
                         <td>${sub}</td>
@@ -62,6 +63,7 @@ async function loadRequests(){
                         <td>${resp[i].grade}</td>
                     </tr>
                 `
+                }
             }
         })
 }

@@ -4,43 +4,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <meta name="description" content="">
+    <title>Login Page Reimbursement App</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <style>
+      header{
+        align-items: center;
+      }
+    </style>
 </head>
+<div class="text-center h2 mb-3 fw-normal">
+    <header> Welcome to the Employee Reimbursement Login Portal </header>
+</div>
 <body>
     
     <!--Let's create input fields and button to login a user-->
-<header> Welcome to the Employee Reimbursement Login Portal </header>
-
-    <div class="container">
-        <br/>
-
-        <p>Hello! Enter your Login Information Here:</p>
-        <label>
-            <div id="unameError" style="display: none;">Please enter a username.</div> 
-            Username:
-            <input id="uname" type="text" placeholder="Username" required> <!--I need to figure out how to make required fields work-->
-        </label>
-
-        <br/>
-        <label>
-            <div id="passError" style="display: none;">Please enter a password.</div> 
-            Password:
-            <input id ="pass" type="password" placeholder="Password" required>
-        </label>
-        <div id="loginError" style="display: none;">Incorrect username/password combination.</div> 
-        <!--the above coding for the login error message pushes the login button down-->
-        <br/>
-
-        <button type="button" onclick="login()">Login</button>
-
-        <br/>
+    <main class="form-signin w-50 m-auto">
+        <form>
+          <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+          
+          <div id="unameError" style="display: none;">Please enter a username.</div>
+          <div id="passError" style="display: none;">Please enter a password.</div> 
+          <div class="form-floating">
+            <input type="text" class="form-control" id="uname" placeholder="Username">
+            <label for="floatingInput">Username</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="pass" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+          </div>
+      
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me"> Remember me
+            </label>
+            <div id="loginError" style="display: none;">Incorrect username/password combination.</div> 
+            <!--the above coding for the login error message pushes the login button down-->
+          </div>
+          <button class="w-100 btn btn-lg btn-primary" type="button" onclick="login()">Sign in</button>
+        </form>
 
         <p class="text">
-            <a href="http://localhost:8081/accountCreation.html" class = link>Don't have an account? Create account</a>
-        </p>
-
-    </div>
+          <a href="http://localhost:8081/accountCreation.html" class = link>Don't have an account? Create account</a>
+      </p>
+      </main>
 
     <script src="./loginScript.js"></script>
+    <script src="./js/bootstrap.js"></script>
 </body>
 </html>

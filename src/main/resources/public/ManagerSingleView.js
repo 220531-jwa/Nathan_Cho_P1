@@ -19,6 +19,9 @@ async function setManagedRequest(){
             let ticket = resp;
             var values = Object.values(ticket);
             let requestID = values[10];
+            let requestUserID = values[9];
+
+            getName(requestUserID);
 
             console.log(ticket);
 
@@ -45,6 +48,20 @@ async function setManagedRequest(){
         })
         .catch((error) => {console.log(error)})
 
+}
+
+async function getName(id){
+    let res = await fetch(
+        `${baseUrl}user/${id}`,
+        {
+            method: 'GET'
+        }
+    );
+    
+    let resJson = await res.json()
+        .then((resp) => {
+            document.getElementById("requestOwner").innerHTML = `Displaying Employee:${resp.name}'s request. Employee ID = ${resp.id}`;
+        });
 }
 
 async function giveResponse(){
@@ -77,3 +94,5 @@ async function statusUpdate(){
         })
         .catch((error) => {console.log(error)});
 }
+
+

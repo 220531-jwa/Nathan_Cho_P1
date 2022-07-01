@@ -5,13 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Requests</title>
-    <style> table, th, td, tr
-        {border:1px solid black;}
-    </style>
+    <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body onload="getRequests()">
-    <h1>Reimbursement Ticket Requests:</h1>
-    <table id="requestsTable" style="width:75%">
+    <h1 class="text-center">Reimbursement Ticket Requests:</h1>
+    <table class="table table-hover" id="requestsTable" style="width:75%">
         <tr>
             <th>ID</th>
             <th>Subject</th>
@@ -21,14 +19,16 @@
         </tr>
     </table>
 
-    <label>
+    <label class="text">
         Request ID:
-        <input id="reqID" type="text">
-        <button type="button" onclick="pullSingleRequest()">View More</button>
+        <input class="form-floating mb-0 w-50" id="reqID" type="text">
+        <button class="btn btn-primary mb-3" type="button" onclick="pullSingleRequest()">View More</button>
     </label>
 
-    <button type="button" onclick="goToHome()">Back to Home</button>
+    <br/>
+    <button class="btn btn-primary mb-3" type="button" onclick="goToHome()">Back to Home</button>
 
     <script src="./viewRequests.js"></script>
+    <script src="./js/bootstrap.js"></script>
 </body>
 </html>

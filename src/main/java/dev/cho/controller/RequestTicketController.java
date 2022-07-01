@@ -64,6 +64,9 @@ public class RequestTicketController {
 			ctx.status(200);
 			ctx.json(requests);
 		}
+		else {
+			ctx.status(404);
+		}
 		
 	}
 	
@@ -78,6 +81,7 @@ public class RequestTicketController {
 		}
 		else {
 			ctx.status(404);
+			ctx.json("");
 		}
 		
 	}
@@ -88,7 +92,19 @@ public class RequestTicketController {
 		String newStatus = ctx.body();
 		
 		RequestTicket updated = rs.statusUpdate(requestId, newStatus);
-		
+		ctx.status(200);
 		ctx.json(updated);
+	}
+	
+	public void updateRequest(Context ctx) {
+		
+		int requestId = Integer.parseInt(ctx.pathParam("requestID"));
+		int userId = Integer.parseInt(ctx.pathParam("userID"));
+		RequestTicket toUpdate = ctx.bodyAsClass(RequestTicket.class);
+		
+		RequestTicket updated = rs.updateRequest(userId, requestId, toUpdate);
+		ctx.status(200);
+		ctx.json(updated);
+		
 	}
 }

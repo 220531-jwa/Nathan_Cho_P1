@@ -5,21 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style> table, th, td, tr
-        {border:1px solid black;}
-        </style>
+    <link rel="stylesheet" href="css/bootstrap.css">
 </head>
-<body onload="setManagedRequest()">
+<body class="container" onload="setManagedRequest()">
     
-    <p>Single Request Management Page</p>
+    <p class="h2">Single Request Management Page</p>
 
-    <p>To change the status of this request, use the dropdown menu and select the new status to be updated.</p>
+    <p class="badge bg-warning text-dark">Use the dropdown menu and select the new status to be updated.</p>
 
-    <table id="requestTable" style="width:75%">
+    <p class="h4" id="requestOwner"> </p>
+    <table class="table table-hover mb-4" id="requestTable" style="width:75%">
     </table>
-    <br/>
-    <div class = "custom-select" style="width:200px;">
-        <select id="newStatus">
+
+    <div class = "mb-3" style="width:200px;">
+        New Style:
+        <select class="form-select mb-1" id="newStatus">
             <option value="open">Open</option>
             <option value="answered">Answered</option>
             <option value="resolved">Resolved</option>
@@ -27,17 +27,19 @@
             <option value="rejected">Rejected</option>
         </select>
 
-        <button type="button" onclick="statusUpdate()">Status Update</button>
+        <button class="btn btn-outline-primary" type="button" onclick="statusUpdate()">Status Update</button>
     </div>
 
-    <p>To input a response, please type below:</p>
-        <label>
+    <p class="h5">To input a response, please type below:</p>
+        <label class="h6">
             Enter Your response here: 
-            <button type="button" onclick="giveResponse()">Submit Response</button>
             <br/>
             <textarea class="userInput" id="response" placeholder="300 character limit" style="height: 200px; width: 300px; font-family: 'Times New Roman', Times, serif;"> </textarea>
+            <br/>
+            <button class="btn btn-outline-primary" type="button" onclick="giveResponse()">Submit Response</button>
         </label>
 
     <script src="./ManagerSingleView.js"></script>
+    <script src="./js/bootstrap.js"></script>
 </body>
 </html>

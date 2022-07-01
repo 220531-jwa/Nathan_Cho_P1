@@ -70,8 +70,9 @@ public class RequestDAO {
 						rs.getInt("id"));
 			}
 		}
-		catch(SQLException e) {
+		catch(Exception e) {
 			e.printStackTrace();
+			return null;
 		}
 		return null;
 	}
@@ -102,6 +103,9 @@ public class RequestDAO {
 						rs.getInt("id")));
 			}
 			
+			if(requests.size() == 0) {
+				return null;
+			}
 			return requests;
 		}
 		catch(SQLException e) {
@@ -136,6 +140,9 @@ public class RequestDAO {
 						rs.getDate("submissiontime"),
 						rs.getInt("user_id"),
 						rs.getInt("id"));
+			}
+			else {
+				return null;
 			}
 		}
 		catch(SQLException e) {
@@ -241,6 +248,58 @@ String sql = "select * from reimbursementapp.requests where id = ?";
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
+		
+		return null;
+	}
+	
+	
+	public RequestTicket updateRequest(int userId, int requestId, RequestTicket toUpdate) {
+		
+		String sql = "UPDATE reimbursementapp.requests set "
+				+ "subject = ?, "
+				+ "status = ?, "
+				+ "eventType = ?, "
+				+ "location = ?, "
+				+ "eventDate = ?, "
+				+ "cost = ?, "
+				+ "description = ? "
+				+ "where id = ? and user_id = ? returning *";
+		
+		try(Connection conn = cu.getConnection()){
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, toUpdate.getSubject());
+			ps.setObject(2, toUpdate.getStatus(), Types.OTHER);
+			ps.setString(3, toUpdate.getEventType());
+			ps.setString(4, toUpdate.getLocation());
+			ps.setDate(5, (Date) toUpdate.getEventDate());
+			ps.setDouble(6, toUpdate.getCost());
+			ps.setString(7, toUpdate.getDescription());
+			ps.setInt(8, requestId);
+			ps.setInt(9, userId);
+			
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				return new RequestTicket(
+						rs.getString("status"),
+						rs.getString("subject"),
+						rs.getString("description"),
+						rs.getDate("eventdate"),
+						rs.getString("location"),
+						rs.getDouble("cost"),
+						rs.getString("eventtype"),
+						rs.getString("grade"),
+						rs.getDate("submissiontime"),
+						rs.getInt("user_id"),
+						rs.getInt("id"));
+			}
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		
 		
 		return null;
 	}

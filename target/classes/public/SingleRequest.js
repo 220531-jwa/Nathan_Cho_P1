@@ -45,4 +45,77 @@ function toNewRequest(){
 
 function editRequest(){
 
+    let element = document.getElementById("editsTable");
+    let hidden = element.getAttribute("hidden");
+
+    if(hidden){
+        element.removeAttribute("hidden");
+        document.getElementById("submit").removeAttribute("hidden");
+        document.getElementById("editReqBut").innerText = "Hide Editor";
+    }
+    else {
+        element.setAttribute("hidden", "hidden");
+        document.getElementById("submit").setAttribute("hidden", "hidden");
+        document.getElementById("editReqBut").innerText = "Edit Request";
+    }
+}
+
+let baseUrl = "http://localhost:8081/";
+
+async function sendEdits(){
+    var reqUpdate = {
+        subject : assign("newSubject"),
+        status : "open",
+        eventType : assign("newEventType"),
+        grade : assign("newGrade"),
+        location : assign("newLocation"),
+        eventDate : assign("newEventTime"),
+        cost : assign("newAmount"),
+        description: assign("newDescription")
+    }
+
+    document.getElementById("updateMsg").removeAttribute("hidden");
+
+    let ticket = JSON.parse(sessionStorage.getItem('selectedRequest'));
+    let reqID = ticket.id;
+    console.log(reqID);
+
+    for(let x in ticket){
+        for(let y in reqUpdate){
+            if(reqUpdate[y] != null && reqUpdate[y].length != 0 && y == x){
+                ticket[x] = reqUpdate[y];
+            }
+        }
+    }
+
+    ticketJSON = JSON.stringify(ticket);
+    console.log(ticketJSON);
+    console.log(ticket);
+
+
+    let res = await fetch(
+        `${baseUrl}requests/${ticket.userId}/${reqID}`,
+        {
+            method: 'PUT',
+            header: {'Content-Type': 'application/json'},
+            body: ticketJSON
+        }
+    );
+
+    let resJson = await res.json()
+        .then((resp) => {
+            console.log(resp);
+            sessionStorage.setItem('selectedRequest', JSON.stringify(resp));
+            window.location = 'http://localhost:8081/SingleRequest.html';
+        })
+        .catch((error) => {console.log(error)});
+
+}
+
+function assign(elem){
+    if(document.getElementById(elem) != null){
+    return document.getElementById(elem).value;
+    }
+    
+    else return null;
 }

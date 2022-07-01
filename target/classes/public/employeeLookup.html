@@ -5,22 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style> table, th, td, tr
-        {border:1px solid black;}
-    </style>
+    <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 <body>
-    <p>Which Employee Would you like to look up today?</p>
+    <p class="h2">Which Employee Would you like to look up today?</p>
     
     <label>
-        <input id="employeeNum" type="text" placeholder="Employee ID">
-        <button type="button" onclick="lookup()">Submit</button>
+        <input class="input" id="employeeNum" type="text" placeholder="Employee ID">
+        <button class="btn btn-outline-primary" type="button" onclick="lookup()">Submit</button>
+    </label>
+
+    <label id="notFound" style="display: none;">
+        <p style="color:red"><i>No Requests found for this ID</i></p>
     </label>
 
     <br/>
-    <table id="requestsTable" style="width:75%">
+
+    <p class="h3" id="nameHere"></p>
+    <table class="table table-hover" id="requestsTable" style="width:75%">
         
     </table>
     <script src="./employeeLookup.js"></script>
+    <script src="./js/bootstrap.js"></script>
 </body>
 </html>
