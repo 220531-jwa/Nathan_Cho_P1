@@ -41,6 +41,7 @@ public class UserController {
 		}
 		else {
 			ctx.status(404);
+			ctx.json(u);
 		}
 		
 	}

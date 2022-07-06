@@ -2,8 +2,7 @@ let baseUrl = "http://localhost:8081/";
 
 async function submitRequest() {
     if(check("subj") || check("evdate") || check("cost")){
-        toggleError("emptyFieldError");
-        console.log('entry field error');
+        document.getElementById("emptyFieldError").removeAttribute("hidden");
         return;
     }
 
@@ -50,17 +49,10 @@ async function submitRequest() {
 }
 
 function check(check){
-    if(document.getElementById(check).value == null){
+    if(document.getElementById(check).value.length == 0){
         return true;
     }
     else {
         return false;
-    }
-}
-
-function toggleError(id){
-    var x = document.getElementById(id);
-    if(x.style.display === "none"){
-        x.style.display="block";
     }
 }

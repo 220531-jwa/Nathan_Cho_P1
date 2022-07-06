@@ -8,7 +8,7 @@ async function login(){
     {
         //gather input from the user 
         toggleError("unameError");
-            return;   
+            return;
     }
 
     if(document.getElementById('pass').value.length == 0)
@@ -49,14 +49,14 @@ async function login(){
     );
     
     if(res.status === 404){
-            toggleError(loginError);
+        toggleError("loginError");
+        return;
     }     
     else if(res.status ===200){
     let resJson = await res.json() //conversion from json into another object
     //.then
          .then((resp) => {
             console.log(resp); //this is where we'll put DOM manipulation if needed
-
                 sessionStorage.setItem('activeUser', JSON.stringify(resp));
 
                 let user = resp;
@@ -78,9 +78,7 @@ async function login(){
 
 function toggleError(id){
     var x = document.getElementById(id);
-    if(x.style.display === "none"){
-        x.style.display="block";
-    }
+    x.removeAttribute("hidden");
 }
 
 function validation(){

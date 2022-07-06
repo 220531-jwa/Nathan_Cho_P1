@@ -22,7 +22,8 @@
     <label class="text">
         Request ID:
         <input class="form-floating mb-0 w-50" id="reqID" type="text">
-        <button class="btn btn-primary mb-3" type="button" onclick="pullSingleRequest()">View More</button>
+        <div id="reqError" style="color:red" hidden>Request ID Not Found</div>
+        <button class="btn btn-primary mt-2 mb-3" type="button" onclick="pullSingleRequest()">View More</button>
     </label>
 
     <br/>

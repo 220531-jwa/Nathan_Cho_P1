@@ -43,6 +43,10 @@ async function getRequests(){
 async function pullSingleRequest(){
     let reqid = document.getElementById("reqID").value;
 
+    if(reqid.length == 0){
+        document.getElementById("reqError").removeAttribute("hidden");
+        return;
+    }
     //add code to verify that the id input is a number.
 
     let res = await fetch(
@@ -52,6 +56,11 @@ async function pullSingleRequest(){
             header: {'Content-Type': 'application/json'}
         }
     );
+
+    if(res.status === 404){
+        document.getElementById("reqError").removeAttribute("hidden");
+        return;
+    }
 
     let resJson = await res.json()
         .then((resp) => {

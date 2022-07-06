@@ -1,16 +1,17 @@
-function loadid(){
-    console.log(sessionStorage.getItem('activeUser'));
-}
-
-
 
 function insertname(){
+
     let user = JSON.parse(sessionStorage.getItem('activeUser'));
     var values = Object.values(user);
     console.log(user);
     console.log(values);
     let name = values[3];
     let id = user.id;
+
+    if(sessionStorage.getItem('testId') != null){
+        id = sessionStorage.getItem('testId');
+    }
+
     document.getElementById("namefield").innerHTML = "Hello " + name + ", ID: " + id + ", What would you like to do today?";
 }
 
